@@ -40,6 +40,16 @@ import xstatic.pkg.spin
 import xstatic.pkg.termjs
 
 
+def collect_bower_static_libs(bower_prefix):
+    prefix='aquari'
+    dirs = []
+    for d in ['angular', 'angular-cookies', 'angular-route', 'bootstrap', 'bootstrap-material-design', 'jquery',
+              'ng-dialog', 'tether', 'underscore']:
+        dirs.append(('%s/lib/%s' % (prefix, d),
+             os.path.abspath(os.path.join(bower_prefix, d))))
+    return dirs
+
+
 def collect_static_lib_dirs(webroot='/'):
     prefix = 'aquari'
     dirs = [

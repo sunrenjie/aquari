@@ -105,4 +105,7 @@ except ImportError:
     logging.warning("No local_settings file found.")
 
 
-STATICFILES_DIRS = staticfiles.collect_static_lib_dirs(STATIC_URL)
+# Temporarily disabled xstatic packages:
+# STATICFILES_DIRS = staticfiles.collect_static_lib_dirs(STATIC_URL)
+STATICFILES_DIRS = staticfiles.collect_bower_static_libs(
+    os.path.abspath(os.path.join(PROJ_DIR, '..', 'bower_components')))

@@ -3,5 +3,8 @@
 *.log
 *.db
 *.sqlite3
+*.patch
 /static/
+/node_modules/
+/bower_components/
 aquari/local_settings.py
