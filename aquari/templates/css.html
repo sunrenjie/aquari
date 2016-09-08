@@ -1,0 +1,10 @@
+{% load compress %}
+{% load staticfiles %}
+
+{% compress css %}
+<link rel="stylesheet" type="text/css" href="{% static 'aquari/lib/bootstrap/dist/css/bootstrap.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'aquari/lib/bootstrap-material-design/dist/css/bootstrap-material-design.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'aquari/lib/bootstrap-material-design/dist/css/ripples.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'aquari/lib/ng-dialog/css/ngDialog.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'aquari/lib/ng-dialog/css/ngDialog-theme-default.css' %}" />
+{% endcompress %}
