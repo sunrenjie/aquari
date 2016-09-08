@@ -13,8 +13,9 @@ Including another URLconf
     1. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import include, url
-from django.contrib import admin
+
+from .views import IndexView
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url('^.*$', IndexView.as_view(), name='index')
 ]
