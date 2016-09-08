@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from .utils import staticfiles
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,15 +26,26 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_ENABLED = True
+COMPRESS_OUTPUT_DIR = 'dashboard'
+COMPRESS_CSS_HASHING_METHOD = 'hash'
+COMPRESS_PARSER = 'compressor.parser.HtmlParser'
+
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'compressor',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -85,10 +97,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 
 try:
     from .local_settings import *
 except ImportError:
     logging.warning("No local_settings file found.")
 
+
+STATICFILES_DIRS = staticfiles.collect_static_lib_dirs(STATIC_URL)
