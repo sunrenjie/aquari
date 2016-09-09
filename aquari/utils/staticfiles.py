@@ -48,10 +48,13 @@ import xstatic.pkg.spin
 import xstatic.pkg.termjs
 
 
+def collect_dirs(prefix):
+    return [d for d in os.listdir(prefix) if os.path.isdir(os.path.join(prefix, d))]
+
+
 def collect_bower_static_libs(bower_prefix, static_prefix):
     dirs = []
-    for d in ['angular', 'angular-cookies', 'angular-route', 'bootstrap', 'bootstrap-material-design', 'jquery',
-              'ng-dialog', 'tether', 'underscore']:
+    for d in collect_dirs(bower_prefix):
         dirs.append(('%s/lib/%s' % (static_prefix, d),
              os.path.abspath(os.path.join(bower_prefix, d))))
     return dirs

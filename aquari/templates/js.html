@@ -3,6 +3,15 @@
 
 {% compress js %}
     <script type="text/javascript" src="{% static "aquari/lib/jquery/dist/jquery.js" %}"></script>
+    <script type="text/javascript" src="{% static "aquari/lib/angular/angular.js" %}"></script>
+    <script type="text/javascript" src="{% static "aquari/lib/angular-cookies/angular-cookies.js" %}"></script>
+    <script type="text/javascript" src="{% static "aquari/lib/angular-route/angular-route.js" %}"></script>
+    <script type="text/javascript" src="{% static "aquari/lib/bootstrap/dist/js/bootstrap.js" %}"></script>
+    <script type="text/javascript" src="{% static "aquari/lib/bootstrap-material-design/dist/js/material.js" %}"></script>
+    <script type="text/javascript" src="{% static "aquari/lib/bootstrap-material-design/dist/js/ripples.js" %}"></script>
+    <script type="text/javascript" src="{% static "aquari/lib/underscore/underscore.js" %}"></script>
+    <script type="text/javascript" src="{% static "aquari/lib/ng-dialog/js/ngDialog.js" %}"></script>
+    <script type="text/javascript" src="{% static "aquari/lib/snackbarjs/dist/snackbar.min.js" %}"></script>
     {% for file in CONFIG.js_sources %}
         <script type="text/javascript" src='{{ STATIC_URL }}{{ file }}'></script>
     {% endfor %}

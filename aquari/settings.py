@@ -114,7 +114,7 @@ CONFIG = {}
 # Temporarily disabled xstatic packages:
 # STATICFILES_DIRS = staticfiles.collect_static_lib_dirs(STATIC_URL)
 STATICFILES_DIRS = staticfiles.collect_bower_static_libs(
-    os.path.abspath(os.path.join(PROJ_DIR, '..', 'bower_components')), STATIC_PREFIX)
+    os.path.abspath(os.path.join(BASE_DIR, 'bower_components')), STATIC_PREFIX)
 
 for p in ['aquari', 'school']:
     staticfiles.populate_config_with_static_files(CONFIG, [os.path.join(BASE_DIR, p, 'static')])
