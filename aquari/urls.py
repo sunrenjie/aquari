@@ -13,9 +13,15 @@ Including another URLconf
     1. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import include, url
+from rest_framework_nested import routers
 
 from .views import IndexView
 
+from school.views import CategoryAppsViewSet, AppViewSet
+router = routers.SimpleRouter()
+router.register(r'apps', AppViewSet)
+
 urlpatterns = [
-    url('^.*$', IndexView.as_view(), name='index')
+    url(r'^api/v1/', include(router.urls)),
+    url('^.*$', IndexView.as_view(), name='index'),
 ]

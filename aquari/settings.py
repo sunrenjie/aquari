@@ -32,8 +32,10 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
+STATIC_PREFIX = 'aquari'
+
 COMPRESS_ENABLED = True
-COMPRESS_OUTPUT_DIR = 'dashboard'
+COMPRESS_OUTPUT_DIR = STATIC_PREFIX
 COMPRESS_CSS_HASHING_METHOD = 'hash'
 COMPRESS_PARSER = 'compressor.parser.HtmlParser'
 
@@ -45,7 +47,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'compressor',
+    'school',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -108,4 +112,4 @@ except ImportError:
 # Temporarily disabled xstatic packages:
 # STATICFILES_DIRS = staticfiles.collect_static_lib_dirs(STATIC_URL)
 STATICFILES_DIRS = staticfiles.collect_bower_static_libs(
-    os.path.abspath(os.path.join(PROJ_DIR, '..', 'bower_components')))
+    os.path.abspath(os.path.join(PROJ_DIR, '..', 'bower_components')), STATIC_PREFIX)
