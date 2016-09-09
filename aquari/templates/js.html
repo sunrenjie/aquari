@@ -3,4 +3,7 @@
 
 {% compress js %}
     <script type="text/javascript" src="{% static "aquari/lib/jquery/dist/jquery.js" %}"></script>
+    {% for file in CONFIG.js_sources %}
+        <script type="text/javascript" src='{{ STATIC_URL }}{{ file }}'></script>
+    {% endfor %}
 {% endcompress %}
