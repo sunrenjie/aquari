@@ -1,0 +1,20 @@
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'ratn!684yf7ewt-%j%afwf7et9c=!oan$=w6#)fn#4u$ie4!as'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+# Database
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'aquari',
+        'USER': 'xxx',
+        'PASSWORD': 'xxx',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
+}
+
+# Time zone
+TIME_ZONE = 'Asia/Shanghai'

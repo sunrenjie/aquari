@@ -5,6 +5,7 @@
         .module('aquari', [
             'aquari.config',
             'aquari.routes',
+            'thinkster.authentication',
             'aquari.utils',
             'aquari.layout',
             'school'

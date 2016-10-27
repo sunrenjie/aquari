@@ -18,10 +18,16 @@ from rest_framework_nested import routers
 from .views import IndexView
 
 from school.views import CategoryAppsViewSet, AppViewSet
+from authentication.views import LoginView, LogoutView
+
 router = routers.SimpleRouter()
 router.register(r'apps', AppViewSet)
 
+from django.conf.urls import patterns, url, include
+
 urlpatterns = [
     url(r'^api/v1/', include(router.urls)),
+    url('^api/v1/auth/login/$', LoginView.as_view(), name='login'),
+    url('^api/v1/auth/logout/$', LogoutView.as_view(), name='logout'),
     url('^.*$', IndexView.as_view(), name='index'),
 ]

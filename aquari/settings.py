@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import logging
+
 from .utils import staticfiles
 
 PROJ_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -49,7 +51,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'rest_framework',
     'compressor',
+    'viewflow',
     'school',
+    'authentication',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -116,6 +120,6 @@ CONFIG = {}
 STATICFILES_DIRS = staticfiles.collect_bower_static_libs(
     os.path.abspath(os.path.join(BASE_DIR, 'bower_components')), STATIC_PREFIX)
 
-for p in ['aquari', 'school']:
+for p in ['aquari', 'school', 'authentication']:
     staticfiles.populate_config_with_static_files(CONFIG, [os.path.join(BASE_DIR, p, 'static')])
     STATICFILES_DIRS.append((p, os.path.join(BASE_DIR, p, 'static', p)))
