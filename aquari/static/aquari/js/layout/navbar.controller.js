@@ -5,14 +5,14 @@
         .module('aquari.layout.controllers')
         .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['$scope'];
+    NavbarController.$inject = ['$scope', 'Authentication'];
 
-    function NavbarController($scope) {
+    function NavbarController($scope, Authentication) {
         var vm = this;
         vm.logout = logout;
 
         function logout() {
-            alert('fun!')
+            Authentication.logout();
         }
     }
 })();

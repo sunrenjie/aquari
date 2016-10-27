@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'compressor',
     'school',
+    'authentication',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -71,6 +72,10 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.tz',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.template.context_processors.static',
@@ -115,6 +120,6 @@ CONFIG = {}
 STATICFILES_DIRS = staticfiles.collect_bower_static_libs(
     os.path.abspath(os.path.join(BASE_DIR, 'bower_components')), STATIC_PREFIX)
 
-for p in ['aquari', 'school']:
+for p in ['aquari', 'school', 'authentication']:
     staticfiles.populate_config_with_static_files(CONFIG, [os.path.join(BASE_DIR, p, 'static')])
     STATICFILES_DIRS.append((p, os.path.join(BASE_DIR, p, 'static', p)))

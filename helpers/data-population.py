@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from django.contrib.auth.models import User
 from school.models import App
+
+User.objects.create_superuser(username='admin', password='admin', email='admin@g.cn')
 
 
 a = App(slug='weixin', name='WeiXin', info=u'微信，超过5亿人使用的应用', summary=u'微信，超过5亿人使用的应用',
