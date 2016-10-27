@@ -49,7 +49,6 @@
 
         function render(current, original) {
             if (current !== original) {
-                alert(current.length);
                 vm.columns = [];
 
                 for (var i = 0; i < calculateNumberOfColumns(); ++i) {
